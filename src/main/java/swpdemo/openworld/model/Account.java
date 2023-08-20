@@ -26,12 +26,6 @@ public class Account {
 
     @Column(nullable = true)
     private Date createDate;
-
-    @Column(nullable = true)
-    private Date createDateTemp;
-
-
-
     public Integer getId() {
         return id;
     }

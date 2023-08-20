@@ -21,9 +21,7 @@ public class Profile {
     private Date dob;
 
     @Column(nullable = true, length = 500)
-    private String avataUrl;
-//    avatar not avata v:
-
+    private String avatarUrl;
     @Column(nullable = true, length = 500)
     private String coverUrl;
 
@@ -71,12 +69,12 @@ public class Profile {
         this.dob = dob;
     }
 
-    public String getAvataUrl() {
-        return avataUrl;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setAvataUrl(String avataUrl) {
-        this.avataUrl = avataUrl;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getCoverUrl() {
