@@ -1,7 +1,9 @@
 package swpdemo.openworld.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "notification")
 public class Notification {
@@ -20,44 +22,4 @@ public class Notification {
 
     @Column(nullable = true)
     private Integer isRead;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getNotificationDate() {
-        return notificationDate;
-    }
-
-    public void setNotificationDate(String notificationDate) {
-        this.notificationDate = notificationDate;
-    }
-
-    public Integer getIsRead() {
-        return isRead;
-    }
-
-    public void setIsRead(Integer isRead) {
-        this.isRead = isRead;
-    }
 }
