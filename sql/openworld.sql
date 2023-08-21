@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `open_world`.`notification` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`notification` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `accountId` INT NULL,
+  `account_id` INT NULL,
   `content` VARCHAR(450) NULL,
-  `notificationDate` DATETIME(6) NULL,
-  `idRead` INT NULL,
+  `notification_date` DATETIME(6) NULL,
+  `is_read` INT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `open_world`.`account` (
   `password` VARCHAR(45) NOT NULL,
   `status` INT NULL DEFAULT NULL,
   `role` INT NULL DEFAULT NULL,
-  `createDate` DATE NULL DEFAULT NULL,
+  `create_date` DATE NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -57,9 +57,9 @@ DROP TABLE IF EXISTS `open_world`.`comment` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`comment` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `postId` INT NULL DEFAULT NULL,
+  `post_id` INT NULL DEFAULT NULL,
   `content` VARCHAR(45) NULL DEFAULT NULL,
-  `createAt` DATETIME(6) NULL DEFAULT NULL,
+  `create_at` DATETIME(6) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -73,10 +73,10 @@ DROP TABLE IF EXISTS `open_world`.`friendship` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`friendship` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `accountId1` INT NULL DEFAULT NULL,
-  `accountId2` INT NULL DEFAULT NULL,
-  `actionAccountId` INT NULL DEFAULT NULL,
-  `friendshipDate` DATE NULL DEFAULT NULL,
+  `account_id1` INT NULL DEFAULT NULL,
+  `account_id2` INT NULL DEFAULT NULL,
+  `action_account_id` INT NULL DEFAULT NULL,
+  `friendship_date` DATE NULL DEFAULT NULL,
   `status` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -91,12 +91,12 @@ DROP TABLE IF EXISTS `open_world`.`profile` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`profile` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `accountId` INT NOT NULL,
-  `fullName` VARCHAR(45) NULL DEFAULT NULL,
+  `account_id` INT NOT NULL,
+  `full_name` VARCHAR(45) NULL DEFAULT NULL,
   `dob` DATE NULL DEFAULT NULL,
-  `avataUrl` VARCHAR(500) NULL DEFAULT NULL,
-  `coverUrl` VARCHAR(500) NULL DEFAULT NULL,
-  `aboutMe` VARCHAR(45) NULL DEFAULT NULL,
+  `avatar_url` VARCHAR(500) NULL DEFAULT NULL,
+  `cover_url` VARCHAR(500) NULL DEFAULT NULL,
+  `about_me` VARCHAR(45) NULL DEFAULT NULL,
   `email` VARCHAR(100) NULL DEFAULT NULL,
   `phone` VARCHAR(100) NULL DEFAULT NULL,
   `gender` INT NULL DEFAULT NULL,
@@ -114,11 +114,11 @@ DROP TABLE IF EXISTS `open_world`.`react` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`react` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `typeId` INT NULL DEFAULT NULL,
-  `accountId` INT NULL DEFAULT NULL,
-  `postId` INT NULL DEFAULT NULL,
-  `commentId` VARCHAR(45) NULL DEFAULT NULL,
-  `createAt` DATETIME(6) NULL DEFAULT NULL,
+  `type_id` INT NULL DEFAULT NULL,
+  `account_id` INT NULL DEFAULT NULL,
+  `post_id` INT NULL DEFAULT NULL,
+  `comment_id` VARCHAR(45) NULL DEFAULT NULL,
+  `create_at` DATETIME(6) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 11
@@ -147,11 +147,11 @@ DROP TABLE IF EXISTS `open_world`.`userpost` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`userpost` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `accountId` INT NOT NULL,
-  `createAt` DATETIME(6) NULL DEFAULT NULL,
+  `account_id` INT NOT NULL,
+  `create_at` DATETIME(6) NULL DEFAULT NULL,
   `caption` VARCHAR(400) NULL DEFAULT NULL,
-  `photoUrl` VARCHAR(450) NULL DEFAULT NULL,
-  `postShareId` VARCHAR(45) NULL DEFAULT NULL,
+  `photo_url` VARCHAR(450) NULL DEFAULT NULL,
+  `post_share_id` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -176,49 +176,49 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ----------------------------------------------------- INSERT DATA -----------------------------------------------------
 
 -- Insert statements for the account table
-INSERT INTO account (username, password, status, role, createDate)VALUES ('admin', '1', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('minhduc@gmail.com', 'password2', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('ngocmai@gmail.com', 'password3', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('baochau@gmail.com', 'password4', 1, 2, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('chauanh@gmail.com', 'password5', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('thanhha@gmail.com', 'password6', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('maiphuong@gmail.com', 'password7', 1, 2, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('phuongnguyen@gmail.com', 'password8', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('maichi@gmail.com', 'password9', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('haiyen@gmail.com', 'password10', 1, 2, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('thienhuong@gmail.com', 'password11', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('longpham@gmail.com', 'password12', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('ducngo@gmail.com', 'password13', 1, 2, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('namdung@gmail.com', 'password14', 1, 1, '2023-08-14');
-INSERT INTO account (username, password, status, role, createDate)VALUES ('quynhnguyen@gmail.com', 'password15', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('admin', '1', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('minhduc@gmail.com', 'password2', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('ngocmai@gmail.com', 'password3', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('baochau@gmail.com', 'password4', 1, 2, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('chauanh@gmail.com', 'password5', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('thanhha@gmail.com', 'password6', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('maiphuong@gmail.com', 'password7', 1, 2, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('phuongnguyen@gmail.com', 'password8', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('maichi@gmail.com', 'password9', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('haiyen@gmail.com', 'password10', 1, 2, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('thienhuong@gmail.com', 'password11', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('longpham@gmail.com', 'password12', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('ducngo@gmail.com', 'password13', 1, 2, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('namdung@gmail.com', 'password14', 1, 1, '2023-08-14');
+INSERT INTO account (username, password, status, role, create_date)VALUES ('quynhnguyen@gmail.com', 'password15', 1, 1, '2023-08-14');
 
 -- Insert statements for the profile table
-INSERT INTO `open_world`.`profile` (`accountId`, `fullName`, `dob`, `avataUrl`, `coverUrl`, `aboutMe`, `email`, `gender`) VALUES ('1', 'admin', '2003-07-01', 'https://kenh14cdn.com/thumb_w/660/2019/5/6/e11-15568041373021117511867-15571599452831872951763.jpg', 'https://i.pinimg.com/736x/53/9b/0a/539b0aa135d8b377647c9548a59de939--background-quotes-fb-background.jpg', 'dep trai', 'admin@gmail.com', '2');
-INSERT INTO `open_world`.`profile` (`accountId`, `fullName`, `dob`, `avataUrl`, `coverUrl`, `aboutMe`, `email`, `gender`) VALUES ('2', 'minh duc', '2002-11-11', 'https://antimatter.vn/wp-content/uploads/2022/10/hinh-anh-avatar-doi-cute-cho-nam.jpg', 'https://content.wepik.com/statics/5048657/preview-page0.jpg', 'nha co dieu kien', 'minhduc@gmail.com', '1');
-INSERT INTO `open_world`.`profile` (`accountId`, `fullName`, `dob`, `avataUrl`, `coverUrl`, `aboutMe`, `email`, `gender`) VALUES ('3', 'ngoc mai', '2003-03-04', 'https://lovicouple.com/wp-content/uploads/2019/12/vai-avatar-cap-cho-cac-ban-de-facebook-25.jpg', 'https://i.pinimg.com/736x/53/9b/0a/539b0aa135d8b377647c9548a59de939--background-quotes-fb-background.jpg', 'ok!', 'ngocmai@gmail.com', '2');
-INSERT INTO `open_world`.`profile` (`accountId`, `fullName`, `dob`, `avataUrl`, `coverUrl`, `aboutMe`, `email`, `gender`) VALUES ('4', 'bao chau', '2002-01-02', 'https://dulich3mien.vn/wp-content/uploads/2023/04/Anh-Avatar-doi-4.jpg', 'https://content.wepik.com/statics/5048657/preview-page0.jpg', 'hehehe', 'baochau@gmail.com', '1');
-INSERT INTO `open_world`.`profile` (`accountId`, `fullName`, `dob`, `avataUrl`, `coverUrl`, `aboutMe`, `email`, `gender`) VALUES ('5', 'chau anh', '2002-05-02', 'https://st.quantrimang.com/photos/image/2021/05/21/AVT-Doi1-2.jpg', 'https://content.wepik.com/statics/5048657/preview-page0.jpg', 'khong biet viet gi', 'chauanh@gmail.com', '2');
+INSERT INTO `open_world`.`profile` (`account_id`, `full_name`, `dob`, `avatar_url`, `cover_url`, `about_me`, `email`, `gender`) VALUES ('1', 'admin', '2003-07-01', 'https://kenh14cdn.com/thumb_w/660/2019/5/6/e11-15568041373021117511867-15571599452831872951763.jpg', 'https://i.pinimg.com/736x/53/9b/0a/539b0aa135d8b377647c9548a59de939--background-quotes-fb-background.jpg', 'dep trai', 'admin@gmail.com', '2');
+INSERT INTO `open_world`.`profile` (`account_id`, `full_name`, `dob`, `avatar_url`, `cover_url`, `about_me`, `email`, `gender`) VALUES ('2', 'minh duc', '2002-11-11', 'https://antimatter.vn/wp-content/uploads/2022/10/hinh-anh-avatar-doi-cute-cho-nam.jpg', 'https://content.wepik.com/statics/5048657/preview-page0.jpg', 'nha co dieu kien', 'minhduc@gmail.com', '1');
+INSERT INTO `open_world`.`profile` (`account_id`, `full_name`, `dob`, `avatar_url`, `cover_url`, `about_me`, `email`, `gender`) VALUES ('3', 'ngoc mai', '2003-03-04', 'https://lovicouple.com/wp-content/uploads/2019/12/vai-avatar-cap-cho-cac-ban-de-facebook-25.jpg', 'https://i.pinimg.com/736x/53/9b/0a/539b0aa135d8b377647c9548a59de939--background-quotes-fb-background.jpg', 'ok!', 'ngocmai@gmail.com', '2');
+INSERT INTO `open_world`.`profile` (`account_id`, `full_name`, `dob`, `avatar_url`, `cover_url`, `about_me`, `email`, `gender`) VALUES ('4', 'bao chau', '2002-01-02', 'https://dulich3mien.vn/wp-content/uploads/2023/04/Anh-Avatar-doi-4.jpg', 'https://content.wepik.com/statics/5048657/preview-page0.jpg', 'hehehe', 'baochau@gmail.com', '1');
+INSERT INTO `open_world`.`profile` (`account_id`, `full_name`, `dob`, `avatar_url`, `cover_url`, `about_me`, `email`, `gender`) VALUES ('5', 'chau anh', '2002-05-02', 'https://st.quantrimang.com/photos/image/2021/05/21/AVT-Doi1-2.jpg', 'https://content.wepik.com/statics/5048657/preview-page0.jpg', 'khong biet viet gi', 'chauanh@gmail.com', '2');
 
 -- Insert statements for the friendship table
-INSERT INTO `open_world`.`friendship` (`accountId1`, `accountId2`, `actionAccountId`, `friendshipDate`, `status`) VALUES ('1', '2', '1', '2023-08-20', '1');
-INSERT INTO `open_world`.`friendship` (`accountId1`, `accountId2`, `actionAccountId`, `friendshipDate`, `status`) VALUES ('1', '3', '3', '2023-08-20', '1');
-INSERT INTO `open_world`.`friendship` (`accountId1`, `accountId2`, `actionAccountId`, `friendshipDate`, `status`) VALUES ('4', '1', '4', '2023-08-20', '1');
-INSERT INTO `open_world`.`friendship` (`accountId1`, `accountId2`, `actionAccountId`, `friendshipDate`, `status`) VALUES ('2', '3', '2', '2023-08-20', '1');
-INSERT INTO `open_world`.`friendship` (`accountId1`, `accountId2`, `actionAccountId`, `friendshipDate`, `status`) VALUES ('3', '4', '4', '2023-08-20', '1');
-INSERT INTO `open_world`.`friendship` (`accountId1`, `accountId2`, `actionAccountId`, `friendshipDate`, `status`) VALUES ('5', '1', '1', '2023-08-20', '2');
-INSERT INTO `open_world`.`friendship` (`accountId1`, `accountId2`, `actionAccountId`, `friendshipDate`, `status`) VALUES ('5', '2', '2', '2023-08-20', '1');
-INSERT INTO `open_world`.`friendship` (`accountId1`, `accountId2`, `actionAccountId`, `friendshipDate`, `status`) VALUES ('5', '3', '5', '2023-08-20', '1');
+INSERT INTO `open_world`.`friendship` (`account_id1`, `account_id2`, `action_account_id`, `friendship_date`, `status`) VALUES ('1', '2', '1', '2023-08-20', '1');
+INSERT INTO `open_world`.`friendship` (`account_id1`, `account_id2`, `action_account_id`, `friendship_date`, `status`) VALUES ('1', '3', '3', '2023-08-20', '1');
+INSERT INTO `open_world`.`friendship` (`account_id1`, `account_id2`, `action_account_id`, `friendship_date`, `status`) VALUES ('4', '1', '4', '2023-08-20', '1');
+INSERT INTO `open_world`.`friendship` (`account_id1`, `account_id2`, `action_account_id`, `friendship_date`, `status`) VALUES ('2', '3', '2', '2023-08-20', '1');
+INSERT INTO `open_world`.`friendship` (`account_id1`, `account_id2`, `action_account_id`, `friendship_date`, `status`) VALUES ('3', '4', '4', '2023-08-20', '1');
+INSERT INTO `open_world`.`friendship` (`account_id1`, `account_id2`, `action_account_id`, `friendship_date`, `status`) VALUES ('5', '1', '1', '2023-08-20', '2');
+INSERT INTO `open_world`.`friendship` (`account_id1`, `account_id2`, `action_account_id`, `friendship_date`, `status`) VALUES ('5', '2', '2', '2023-08-20', '1');
+INSERT INTO `open_world`.`friendship` (`account_id1`, `account_id2`, `action_account_id`, `friendship_date`, `status`) VALUES ('5', '3', '5', '2023-08-20', '1');
 
 -- Insert statements for the userpost table
-INSERT INTO `open_world`.`userpost` (`accountId`, `createAt`, `caption`, `photoUrl`) VALUES ('1', '2023-08-20 20:35:00.000000', 'may anh moi mua', 'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg');
-INSERT INTO `open_world`.`userpost` (`accountId`, `createAt`, `caption`, `photoUrl`) VALUES ('2', '2023-08-20 20:35:00.000000', 'no cap', 'https://learnopencv.com/wp-content/uploads/2021/04/image-15.png');
-INSERT INTO `open_world`.`userpost` (`accountId`, `postShareId`) VALUES ('1', '2');
+INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('1', '2023-08-20 20:35:00.000000', 'may anh moi mua', 'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg');
+INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('2', '2023-08-20 20:35:00.000000', 'no cap', 'https://learnopencv.com/wp-content/uploads/2021/04/image-15.png');
+INSERT INTO `open_world`.`userpost` (`account_id`, `post_share_id`) VALUES ('1', '2');
 
 -- Insert statements for the comment table
-INSERT INTO `open_world`.`comment` (`postId`, `content`, `createAt`) VALUES ('1', 'may anh dep the', '2023-09-20 20:35:00.000000');
-INSERT INTO `open_world`.`comment` (`postId`, `content`, `createAt`) VALUES ('1', 'nha giau quaaa', '2023-09-20 20:35:00.000000');
-INSERT INTO `open_world`.`comment` (`postId`, `content`, `createAt`) VALUES ('1', 'ok day', '2023-09-20 20:35:00.000000');
-INSERT INTO `open_world`.`comment` (`postId`, `content`, `createAt`) VALUES ('2', 'gi the', '2023-09-20 20:35:00.000000');
+INSERT INTO `open_world`.`comment` (`post_id`, `content`, `create_at`) VALUES ('1', 'may anh dep the', '2023-09-20 20:35:00.000000');
+INSERT INTO `open_world`.`comment` (`post_id`, `content`, `create_at`) VALUES ('1', 'nha giau quaaa', '2023-09-20 20:35:00.000000');
+INSERT INTO `open_world`.`comment` (`post_id`, `content`, `create_at`) VALUES ('1', 'ok day', '2023-09-20 20:35:00.000000');
+INSERT INTO `open_world`.`comment` (`post_id`, `content`, `create_at`) VALUES ('2', 'gi the', '2023-09-20 20:35:00.000000');
 
 -- Insert statements for the profile table
 INSERT INTO `open_world`.`type_react` (`id`, `name`) VALUES ('1', 'like');
@@ -228,23 +228,23 @@ INSERT INTO `open_world`.`type_react` (`id`, `name`) VALUES ('4', 'wow');
 INSERT INTO `open_world`.`type_react` (`id`, `name`) VALUES ('5', 'angry');
 
 -- Insert statements for the react table for post
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `postId`, `createAt`) VALUES ('1', '1', '1', '2023-09-20 21:35:00.000000');
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `postId`, `createAt`) VALUES ('1', '2', '1', '2023-09-20 21:35:00.000000');
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `postId`, `createAt`) VALUES ('3', '3', '1', '2023-09-20 21:35:00.000000');
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `postId`, `createAt`) VALUES ('4', '1', '2', '2023-09-20 21:35:00.000000');
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `postId`, `createAt`) VALUES ('2', '1', '3', '2023-09-20 21:35:00.000000');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `post_id`, `create_at`) VALUES ('1', '1', '1', '2023-09-20 21:35:00.000000');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `post_id`, `create_at`) VALUES ('1', '2', '1', '2023-09-20 21:35:00.000000');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `post_id`, `create_at`) VALUES ('3', '3', '1', '2023-09-20 21:35:00.000000');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `post_id`, `create_at`) VALUES ('4', '1', '2', '2023-09-20 21:35:00.000000');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `post_id`, `create_at`) VALUES ('2', '1', '3', '2023-09-20 21:35:00.000000');
 -- Insert statements for the react table for comment
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `commentId`, `createAt`) VALUES ('1', '1', '1', '2023-09-20 21:35:00.000000');
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `commentId`, `createAt`) VALUES ('1', '2', '1', '2023-09-20 21:35:00.000000');
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `commentId`, `createAt`) VALUES ('2', '1', '2', '2023-09-20 21:35:00.000000');
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `commentId`, `createAt`) VALUES ('3', '4', '3', '2023-09-20 21:35:00.000000');
-INSERT INTO `open_world`.`react` (`typeId`, `accountId`, `commentId`) VALUES ('2', '2', '3');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `comment_id`, `create_at`) VALUES ('1', '1', '1', '2023-09-20 21:35:00.000000');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `comment_id`, `create_at`) VALUES ('1', '2', '1', '2023-09-20 21:35:00.000000');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `comment_id`, `create_at`) VALUES ('2', '1', '2', '2023-09-20 21:35:00.000000');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `comment_id`, `create_at`) VALUES ('3', '4', '3', '2023-09-20 21:35:00.000000');
+INSERT INTO `open_world`.`react` (`type_id`, `account_id`, `comment_id`) VALUES ('2', '2', '3');
 
 -- Insert statements for the notification table
-INSERT INTO `open_world`.`notification` (`accountId`, `content`, `notificationDate`, `idRead`) VALUES ('1', 'ngoc mai like your post', '2023-09-20 21:35:00.000000', '0');
-INSERT INTO `open_world`.`notification` (`accountId`, `content`, `notificationDate`, `idRead`) VALUES ('2', 'ngoc mai like your post', '2023-09-20 21:35:00.000000', '1');
-INSERT INTO `open_world`.`notification` (`accountId`, `content`, `notificationDate`, `idRead`) VALUES ('1', 'long comment your post', '2023-09-20 21:35:00.000000', '0');
-INSERT INTO `open_world`.`notification` (`accountId`, `content`, `notificationDate`, `idRead`) VALUES ('3', 'fake notification', '2023-09-20 21:35:00.000000', '1');
+INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('1', 'ngoc mai like your post', '2023-09-20 21:35:00.000000', '0');
+INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('2', 'ngoc mai like your post', '2023-09-20 21:35:00.000000', '1');
+INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('1', 'long comment your post', '2023-09-20 21:35:00.000000', '0');
+INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('3', 'fake notification', '2023-09-20 21:35:00.000000', '1');
 
 
 
