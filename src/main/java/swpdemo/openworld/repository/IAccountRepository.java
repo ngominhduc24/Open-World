@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import swpdemo.openworld.model.Account;
 
 @Repository
-public interface IAccount extends JpaRepository<Account, Integer>{
+public interface IAccountRepository extends JpaRepository<Account, Integer>{
 }
