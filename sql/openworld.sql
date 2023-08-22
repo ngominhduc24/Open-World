@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `open_world`.`notification` (
   `account_id` INT NULL,
   `content` VARCHAR(450) NULL,
   `notification_date` DATETIME(6) NULL,
-  `is_read` INT NULL,
+  `is_read` INT NULL, -- 0: unread | 1:read
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `open_world`.`account` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `status` INT NULL DEFAULT NULL,
-  `role` INT NULL DEFAULT NULL,
+  `status` INT NULL DEFAULT NULL, --  0 in-active | 1: active
+  `role` INT NULL DEFAULT NULL, -- 1: user | 2: admin
   `create_date` DATE NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `open_world`.`friendship` (
   `account_id2` INT NULL DEFAULT NULL,
   `action_account_id` INT NULL DEFAULT NULL,
   `friendship_date` DATE NULL DEFAULT NULL,
-  `status` INT NULL DEFAULT NULL,
+  `status` INT NULL DEFAULT NULL, -- 1: friend | 2: block
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `open_world`.`profile` (
   `about_me` VARCHAR(45) NULL DEFAULT NULL,
   `email` VARCHAR(100) NULL DEFAULT NULL,
   `phone` VARCHAR(100) NULL DEFAULT NULL,
-  `gender` INT NULL DEFAULT NULL,
+  `gender` INT NULL DEFAULT NULL, -- 1: male | 2: female
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
