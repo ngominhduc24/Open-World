@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTMX example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
+</head>
+<body>
+    <p class="alert alert-success">if this is styled then ... <strong>Bootstrap is working</strong></p>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">To do</th>
+                    <th scope="col">Done</th>
+                </tr>
+            </thead>
+            <tbody id="todo-list">
+            <tr>
+                <td th:text="${item}">Get Groceries</td>
+                <td>
+                    <!--suppress HtmlFormInputWithoutLabel -->
+                    <input type="checkbox"/>
+                </td>
+                <td>
+                    <button class="btn btn-danger" hx-confirm="Are you sure?" hx-target="closest tr" hx-swap="outerHTML swap:1s" hx-trigger="click" th:attr="hx-delete=@{/todo/delete}">Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+<!--        </table>-->
+<!--        <table class="table">-->
+<!--            <tr>-->
+<!--                <td colspan="2">-->
+<!--                    &lt;!&ndash;suppress HtmlFormInputWithoutLabel &ndash;&gt;-->
+<!--                    <input autofocus="autofocus" class="form-control form-control-plaintext" id="new-todo" name="new-todo" placeholder="To do..." required type="text">-->
+<!--                </td>-->
+<!--                <td class="w-25">-->
+<!--                    <button _="on htmx:afterRequest put '' into #new-todo.value" id="mon" hx-include="#new-todo" th:attr="hx-post=@{/todo/create}" hx-target="#todo-list" hx-swap="beforeend" hx-trigger="click" class="btn btn-primary">Add-->
+<!--                    </button>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--        </table>-->
+    </div>
+</body>
+</html>
