@@ -19,4 +19,9 @@ public class AccountDTO {
     private Date createDate;
     private Date dob;
     private Integer gender;
+    private String avatarUrl;
+    private String coverUrl;
+    private String aboutMe;
+    private String email;
+    private String phone;
 }
