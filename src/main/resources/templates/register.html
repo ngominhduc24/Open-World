@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/register}" th:object="${AccountDTO}" method="post">
+    fullname: <input type="text" th:field="*{fullName}"><br>
+    username: <input type="text" th:field="*{username}"> <br>
+    password: <input type="password" th:field="*{password}"><br>
+    re-password: <input type="password" name="re-password"> <br>
+    date of birth: <input type="date" th:field="*{dob}"><br>
+    Gender:
+    <input type="radio" id="male" th:field="*{gender}" value="1">
+    <label for="male">Male</label>
+    <input type="radio" id="female" th:field="*{gender}" value="2">
+    <label for="female">Female</label><br>
+
+    <input type="submit" value="Register">
+  <p th:text="${errmsg}" style="color: red"></p>
+</form>
+</body>
+</html>
