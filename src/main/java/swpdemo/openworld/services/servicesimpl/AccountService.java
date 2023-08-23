@@ -40,6 +40,10 @@ public class AccountService implements IAccountService {
         Profile profile = new Profile();
         profile.setAccountId(1);
         profile = mapper.map(accountDTO,Profile.class);
+        // Check username is phonenumber or email
+        String username = accountDTO.getUsername();
+        profile.setEmail(username.contains("@") ? username : null);
+        profile.setPhone(username.contains("@") ? null : username);
         profile.setAccountId(newAccount.getId());
         profile.setAvatarUrl(default_imageURL);
         profileRepository.save(profile);
