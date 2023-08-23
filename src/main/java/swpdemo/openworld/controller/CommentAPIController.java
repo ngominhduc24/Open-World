@@ -11,34 +11,21 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
-public class UserPostAPIController {
+
+public class CommentAPIController {
     @Autowired
     UserPostService userPostService;
 
     /*
      * get all userpost where id of account = accountID with limit number of post     ex: /api/v1/post/61?limit=1
      */
-    @GetMapping("/post/{accountId}")
+    @GetMapping("/comment/{postId}")
     public List<UserPostDTO> getUserPost(
             @PathVariable(name = "accountId") Integer accountId,
             @RequestParam(name = "start", defaultValue = "1") Integer start,
             @RequestParam(name = "end", defaultValue = "10") Integer end,
             HttpSession session
     ) throws IllegalAccessException {
-        try {
-            Account acc = (Account) session.getAttribute("account");
-            if (acc.getId() != accountId) {
-                throw new Exception(); // This might need more specific exception handling
-            }
-        } catch (Exception e) {
-            throw new IllegalAccessException();
-        }
-
-        List<UserPostDTO> listUserPost = userPostService.getPostById(accountId, start, end);
-        if (listUserPost != null) {
-            return listUserPost;
-        } else {
-            throw new IndexOutOfBoundsException();
-        }
+        return null;
     }
 }

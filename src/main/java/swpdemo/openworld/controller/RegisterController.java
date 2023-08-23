@@ -34,7 +34,7 @@ public class RegisterController {
             Account account = accountService.registerNewAccount(accountDTO);
             if(accountDTO != null) {
                 session.setAttribute("account", account);
-                return "home";
+                return "redirect:/home";
             }
         }
         return "register";
