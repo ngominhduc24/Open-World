@@ -2,10 +2,689 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage.css}">
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script th:src="@{https://unpkg.com/htmx.org@1.9.4}" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<p th:text="'Hello: ' + ${session.account.username}"></p>
-<a href="/logout">Logout</a>
+<!------------navbar-------------->
+<div th:replace="navbar"></div>
+
+<!------------main--------------->
+
+<div class="main">
+
+    <div class="left">
+        <a href="/profile">
+            <div class="img">
+                <img src="../static/image/profile.png">
+                <p>John Doe</p>
+            </div>
+        </a>
+
+        <div class="img">
+            <img src="../static/image/friend.png">
+            <p>Friends</p>
+        </div>
+
+        <div class="img">
+            <img src="../static/image/saved.png">
+            <p>Saved</p>
+        </div>
+
+        <div class="img">
+            <img src="../static/image/group.png">
+            <p>Groups</p>
+        </div>
+
+        <div class="img">
+            <img src="../static/image/marketplace.png">
+            <p>Marketplace</p>
+        </div>
+
+        <div class="img">
+            <img src="../static/image/watch.png">
+            <p>Watch</p>
+        </div>
+
+        <div class="img">
+            <img src="../static/image/down_arrow.png">
+            <p>See more</p>
+        </div>
+
+        <hr>
+
+    </div>
+
+    <!------------center---------------------->
+
+    <div class="center">
+
+        <div class="my_post">
+
+            <div class="post_top">
+
+                <img src="../static/image/profile.png">
+                <input type="text" placeholder="What's on you mind, John?">
+
+            </div>
+
+            <hr>
+
+            <div class="post_bottom">
+
+                <div class="post_icon">
+                    <i class="fa-solid fa-video red"></i>
+                    <span>Live video</span>
+                </div>
+
+                <div class="post_icon">
+                    <i class="fa-solid fa-images green"></i>
+                    <span>Photo/video</span>
+                </div>
+
+                <div class="post_icon">
+                    <i class="fa-regular fa-face-grin yellow"></i>
+                    <span>Feeling/activity</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="friends_post">
+
+            <div class="friend_post_top">
+
+                <div class="img_and_name">
+
+                    <img src="../static/image/post_1.jpg">
+
+                    <div class="friends_name">
+                        <p class="friends_name">
+                            Senuda De Silva
+                        </p>
+                        <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                    </div>
+
+
+                </div>
+
+                <div class="menu">
+
+                    <i class="fa-solid fa-ellipsis"></i>
+
+                </div>
+
+            </div>
+
+            <img src="../static/image/post_1.jpg">
+
+            <div class="info">
+
+                <div class="emoji_img">
+                    <img src="../static/image/like.png">
+                    <img src="../static/image/haha.png">
+                    <img src="../static/image/heart.png">
+                    <p>You, Charith Disanayaka and 25K others</p>
+                </div>
+
+                <div class="comment">
+                    <p>421 Comments</p>
+                    <p>1.3K Shares</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="like">
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-thumbs-up activi"></i>
+                    <span>Like</span>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-message"></i>
+                    <span>Comments</span>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-share"></i>
+                    <span>Share</span>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="comment_warpper">
+
+                <img src="../static/image/profile.png">
+                <div class="circle"></div>
+
+                <div class="comment_search">
+
+                    <input type="text" placeholder="Write a comment">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <i class="fa-solid fa-camera"></i>
+                    <i class="fa-regular fa-note-sticky"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="friends_post">
+
+            <div class="friend_post_top">
+
+                <div class="img_and_name">
+
+                    <img src="../static/image/profile_9.png">
+
+                    <div class="friends_name">
+                        <p class="friends_name">
+                            Senuda De Silva
+                        </p>
+                        <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                    </div>
+
+
+                </div>
+
+                <div class="menu">
+
+                    <i class="fa-solid fa-ellipsis"></i>
+
+                </div>
+
+            </div>
+
+            <img src="../static/image/post_2.jpg">
+
+            <div class="info">
+
+                <div class="emoji_img">
+                    <img src="../static/image/like.png">
+                    <img src="../static/image/haha.png">
+                    <img src="../static/image/heart.png">
+                    <p>You, Charith Disanayaka and 25K others</p>
+                </div>
+
+                <div class="comment">
+                    <p>421 Comments</p>
+                    <p>1.3K Shares</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="like">
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-thumbs-up activi"></i>
+                    <span>Like</span>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-message"></i>
+                    <span>Comments</span>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-share"></i>
+                    <span>Share</span>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="comment_warpper">
+
+                <img src="../static/image/profile.png">
+                <div class="circle"></div>
+
+                <div class="comment_search">
+
+                    <input type="text" placeholder="Write a comment">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <i class="fa-solid fa-camera"></i>
+                    <i class="fa-regular fa-note-sticky"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="friends_post">
+
+            <div class="friend_post_top">
+
+                <div class="img_and_name">
+
+                    <img src="../static/image/profile_10.png">
+
+                    <div class="friends_name">
+                        <p class="friends_name">
+                            Senuda De Silva
+                        </p>
+                        <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                    </div>
+
+
+                </div>
+
+                <div class="menu">
+
+                    <i class="fa-solid fa-ellipsis"></i>
+
+                </div>
+
+            </div>
+
+            <img src="../static/image/post_3.png">
+
+            <div class="info">
+
+                <div class="emoji_img">
+                    <img src="../static/image/like.png">
+                    <img src="../static/image/haha.png">
+                    <img src="../static/image/heart.png">
+                    <p>You, Charith Disanayaka and 25K others</p>
+                </div>
+
+                <div class="comment">
+                    <p>421 Comments</p>
+                    <p>1.3K Shares</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="like">
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-thumbs-up activi"></i>
+                    <span>Like</span>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-message"></i>
+                    <span>Comments</span>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-share"></i>
+                    <span>Share</span>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="comment_warpper">
+
+                <img src="../static/image/profile.png">
+                <div class="circle"></div>
+
+                <div class="comment_search">
+
+                    <input type="text" placeholder="Write a comment">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <i class="fa-solid fa-camera"></i>
+                    <i class="fa-regular fa-note-sticky"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="friends_post">
+
+            <div class="friend_post_top">
+
+                <div class="img_and_name">
+
+                    <img src="../static/image/profile_11.png">
+
+                    <div class="friends_name">
+                        <p class="friends_name">
+                            Senuda De Silva
+                        </p>
+                        <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                    </div>
+
+
+                </div>
+
+                <div class="menu">
+
+                    <i class="fa-solid fa-ellipsis"></i>
+
+                </div>
+
+            </div>
+
+            <img src="../static/image/post_4.jpg">
+
+            <div class="info">
+
+                <div class="emoji_img">
+                    <img src="../static/image/like.png">
+                    <img src="../static/image/haha.png">
+                    <img src="../static/image/heart.png">
+                    <p>You, Charith Disanayaka and 25K others</p>
+                </div>
+
+                <div class="comment">
+                    <p>421 Comments</p>
+                    <p>1.3K Shares</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="like">
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-thumbs-up activi"></i>
+                    <span>Like</span>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-message"></i>
+                    <span>Comments</span>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-share"></i>
+                    <span>Share</span>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="comment_warpper">
+
+                <img src="../static/image/profile.png">
+                <div class="circle"></div>
+
+                <div class="comment_search">
+
+                    <input type="text" placeholder="Write a comment">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <i class="fa-solid fa-camera"></i>
+                    <i class="fa-regular fa-note-sticky"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="friends_post">
+
+            <div class="friend_post_top">
+
+                <div class="img_and_name">
+
+                    <img src="../static/image/profile_12.jpg">
+
+                    <div class="friends_name">
+                        <p class="friends_name">
+                            Senuda De Silva
+                        </p>
+                        <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                    </div>
+
+
+                </div>
+
+                <div class="menu">
+
+                    <i class="fa-solid fa-ellipsis"></i>
+
+                </div>
+
+            </div>
+
+            <img src="../static/image/post_5.jpg">
+
+            <div class="info">
+
+                <div class="emoji_img">
+                    <img src="../static/image/like.png">
+                    <img src="../static/image/haha.png">
+                    <img src="../static/image/heart.png">
+                    <p>You, Charith Disanayaka and 25K others</p>
+                </div>
+
+                <div class="comment">
+                    <p>421 Comments</p>
+                    <p>1.3K Shares</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="like">
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-thumbs-up activi"></i>
+                    <span>Like</span>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-message"></i>
+                    <spanp>Comments</spanp>
+                </div>
+
+                <div class="like_icon">
+                    <i class="fa-solid fa-share"></i>
+                    <span>Share</span>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="comment_warpper">
+
+                <img src="../static/image/profile.png">
+                <div class="circle"></div>
+
+                <div class="comment_search">
+
+                    <input type="text" placeholder="Write a comment">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <i class="fa-solid fa-camera"></i>
+                    <i class="fa-regular fa-note-sticky"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="loard">
+            <button>Loard More</button>
+        </div>
+
+        <p class="end">Design By<span><i class="fa-regular fa-face-grin"></i>
+            WT Master Code</span></p>
+
+
+    </div>
+
+    <!------------------right------------------>
+
+    <div class="right">
+
+        <div class="first_warpper">
+
+            <div class="page">
+
+                <h2>Your Pages and profiles</h2>
+                <div class="menu">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+
+            </div>
+
+            <div class="page_img">
+                <img src="../static/image/page.jpg">
+                <p>Web Designer</p>
+            </div>
+
+            <div class="page_icon">
+                <i class="fa-regular fa-bell"></i>
+                <p>20 Notifications</p>
+            </div>
+
+            <div class="page_icon">
+                <i class="fa-solid fa-bullhorn"></i>
+                <p>Create promotion</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="second_warpper">
+
+            <h2>Birthdays</h2>
+
+            <div class="img_and_tag">
+
+                <img src="../static/image/gift.png">
+                <p><span>Senuda De Silva </span>and<span> 2 others </span>have birthdays today</p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+
+        <div class="third_warpper">
+
+            <div class="contact_tag">
+
+                <h2>Contacts</h2>
+
+                <div class="contact_icon">
+
+                    <i class="fa-solid fa-video"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-ellipsis"></i>
+
+                </div>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/contact_1.jpg">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/contact_2.jpg">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/contact_3.jpg">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/contact_4.jpg">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/contact_5.jpg">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/profile_1.jpg">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/profile_2.jpg">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/profile_3.jpg">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/profile_4.png">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/profile_5.png">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/profile_6.png">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+            <div class="contact">
+
+                <img src="../static/image/profile_7.png">
+                <p>Senuda De Silva</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 </body>
 </html>
