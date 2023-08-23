@@ -91,7 +91,7 @@ DROP TABLE IF EXISTS `open_world`.`profile` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`profile` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `account_id` INT NOT NULL,
+  `account_id` INT DEFAULT NULL,
   `full_name` VARCHAR(45) NULL DEFAULT NULL,
   `dob` DATE NULL DEFAULT NULL,
   `avatar_url` VARCHAR(500) NULL DEFAULT NULL,
