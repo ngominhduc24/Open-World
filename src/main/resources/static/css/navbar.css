@@ -25,7 +25,7 @@ nav .left{
 }
 
 nav .left .search_bar{
-    width: 250px;
+    width: 350px;
     height: 40px;
     background: #efefef;
     border-radius: 30px;
@@ -47,22 +47,12 @@ nav .left .search_bar input{
     outline: none;
     border: 0;
     font-size: 16px;
-    width: 200px;
+    width: 280px;
 }
 
 nav .center{
     position: relative;
     right: 45px;
-}
-
-nav .center i{
-    margin: 0 45px 0 45px;
-    font-size: 22px;
-}
-
-nav .center i:hover{
-    color: #45abff;
-    cursor: pointer;
 }
 
 nav .right{
@@ -71,25 +61,28 @@ nav .right{
     margin-right: 10px;
 }
 
-nav .right i{
-    width: 35px;
-    height: 35px;
+.right-icon{
+    display: flex;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
+    align-items: center;
     background: #efefef;
-    line-height: 35px;
-    padding-left: 8px;
-    font-size: 18px;
-    margin-left: 8px;
+    font-size: 20px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
+nav .right i {
+    margin: inherit;
+}
+
 nav .right img{
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     object-fit: cover;
     object-position: center;
     border-radius: 50%;
-    margin-left: 8px;
     line-height: 45px;
     cursor: pointer;
 }
