@@ -9,7 +9,7 @@ import org.springframework.web.context.request.WebRequest;
 @Controller
 public class LogoutController {
     @GetMapping("/logout")
-    public String loginPage(WebRequest request, Model model, HttpSession session) {
+    public String logout(WebRequest request, Model model, HttpSession session) {
         session.removeAttribute("account");
         return "login";
     }

@@ -27,8 +27,13 @@ public class LoginController {
         String password = request.getParameter("password");
 
         Account account = accountService.getAccountByUsernameAndPassword(username, password);
-        session.setAttribute("account", account);
-        System.out.println(account);
-        return "redirect:/home";
+        if(account != null) {
+            session.setAttribute("account", account);
+            return "redirect:/home";
+        }
+        else {
+            model.addAttribute("errmsg", "username or password is not correct");
+            return "login";
+        }
     }
 }

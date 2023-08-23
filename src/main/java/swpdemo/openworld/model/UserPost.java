@@ -3,6 +3,8 @@ package swpdemo.openworld.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 @Data
 @Entity
 @Table(name = "userpost")
@@ -15,7 +17,7 @@ public class UserPost {
     private Integer accountId;
 
     @Column(nullable = true)
-    private String createAt;
+    private Timestamp createAt;
 
     @Column(nullable = true, length = 400)
     private String caption;
