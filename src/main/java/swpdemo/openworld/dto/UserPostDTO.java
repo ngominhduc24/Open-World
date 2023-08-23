@@ -16,7 +16,7 @@ public class UserPostDTO {
     private String caption;
     private String photoUrl;
     private String postShareId;
-    private String userComment;
+    private String userReact;
     private Integer totalReact;
     private Integer totalComment;
     private Integer totalShare;
