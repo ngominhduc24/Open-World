@@ -6,12 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 import swpdemo.openworld.model.Account;
-import swpdemo.openworld.repository.IAccountRepository;
 import swpdemo.openworld.services.servicesimpl.AccountService;
-
-import java.util.List;
 
 @Controller
 public class LoginController {
