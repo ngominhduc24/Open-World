@@ -34,7 +34,7 @@ public class UserPostAPIController {
             throw new IllegalAccessException();
         }
 
-        List<UserPostDTO> listUserPost = userPostService.getPostById(accountId, start, end);
+        List<UserPostDTO> listUserPost = userPostService.getPostByAccountId(accountId, start, end);
         if (listUserPost != null) {
             return listUserPost;
         } else {
