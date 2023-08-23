@@ -1,5 +1,14 @@
-.container{
+.main{
     margin-top: 70px;
+}
+
+.img_profile {
+    border:1px;
+}
+
+.img_profile_header {
+    display: flex;
+    justify-content: space-between;
 }
 
 .main .center .my_post{
