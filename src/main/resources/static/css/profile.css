@@ -1,5 +1,77 @@
-.container{
-    margin-top: 70px;
+.wrapper {
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+.profile-background {
+    margin: 0 190px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+}
+
+.profile-background img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 220px;
+    margin-top: -45px;
+}
+
+.profile-account {
+    display: flex;
+    align-items: center;
+}
+
+.main {
+    margin-top: 40px;
+}
+
+.img_profile {
+    background: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+}
+
+.img_profile_header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.profile-avatar {
+    margin-right: 15px;
+}
+
+.profile-avatar img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.friend_profile {
+    box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 7px;
+}
+
+.friend_profile-header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+
 }
 
 .main .center .my_post{

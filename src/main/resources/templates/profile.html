@@ -4,175 +4,479 @@
     <meta charset="UTF-8">
     <title>Profile page</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/profile.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+          integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://unpkg.com/htmx.org@1.9.4"
+            integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV"
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <!------------navbar-------------->
-    <div th:replace="navbar"></div>
+<!------------navbar-------------->
+<div th:replace="navbar"></div>
 
-    <!-- main -->
-    <main class="main container">
-        <div class="row">
-            <div class="col-md-3">
-                <!-- edit profile -->
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h4>Edit profile</h4>
-                        <form method="post" action="">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="status" placeholder="Status" value="">
-                            </div>
-
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="location" placeholder="Location" value="">
-                            </div>
-
-                            <div class="form-group">
-                                <input class="btn btn-primary" type="submit" name="update_profile" value="Save">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- ./edit profile -->
+<!-- avatar & cover -->
+<div class="wrapper">
+    <div class="profile-background">
+        <a href="">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                 alt="background">
+        </a>
+    </div>
+    <div class="profile-header">
+        <div class="profile-account">
+            <div class="profile-avatar">
+                <a href="">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                         alt="avatar">
+                </a>
             </div>
-            <div class="center col-md-6">
-                <div class="my_post">
-
-                    <div class="post_top">
-
-                        <img src="../static/image/profile.png">
-                        <input type="text" placeholder="What's on you mind, John?">
-
-                    </div>
-
-                    <hr>
-
-                    <div class="post_bottom">
-
-                        <div class="post_icon">
-                            <i class="fa-solid fa-video red"></i>
-                            <span>Live video</span>
-                        </div>
-
-                        <div class="post_icon">
-                            <i class="fa-solid fa-images green"></i>
-                            <span>Photo/video</span>
-                        </div>
-
-                        <div class="post_icon">
-                            <i class="fa-regular fa-face-grin yellow"></i>
-                            <span>Feeling/activity</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="friends_post">
-
-                    <div class="friend_post_top">
-
-                        <div class="img_and_name">
-
-                            <img src="../static/image/post_1.jpg">
-
-                            <div class="friends_name">
-                                <p class="friends_name">
-                                    John Doe
-                                </p>
-                                <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
-                            </div>
-
-                        </div>
-
-                        <div class="menu">
-
-                            <i class="fa-solid fa-ellipsis"></i>
-
-                        </div>
-
-                    </div>
-
-                    <img src="../static/image/post_1.jpg">
-
-                    <div class="info">
-
-                        <div class="emoji_img">
-                            <img src="../static/image/like.png">
-                            <img src="../static/image/haha.png">
-                            <img src="../static/image/heart.png">
-                            <p>You, Charith Disanayaka and 25K others</p>
-                        </div>
-
-                        <div class="comment">
-                            <p>421 Comments</p>
-                            <p>1.3K Shares</p>
-                        </div>
-
-                    </div>
-
-                    <hr>
-
-                    <div class="like">
-
-                        <div class="like_icon">
-                            <i class="fa-solid fa-thumbs-up activi"></i>
-                            <span>Like</span>
-                        </div>
-
-                        <div class="like_icon">
-                            <i class="fa-solid fa-message"></i>
-                            <span>Comments</span>
-                        </div>
-
-                        <div class="like_icon">
-                            <i class="fa-solid fa-share"></i>
-                            <span>Share</span>
-                        </div>
-
-                    </div>
-
-                    <hr>
-
-                    <div class="comment_warpper">
-
-                        <img src="../static/image/profile.png">
-                        <div class="circle"></div>
-
-                        <div class="comment_search">
-
-                            <input type="text" placeholder="Write a comment">
-                            <i class="fa-regular fa-face-smile"></i>
-                            <i class="fa-solid fa-camera"></i>
-                            <i class="fa-regular fa-note-sticky"></i>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <!-- friends -->
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h4>Friends</h4>
-                        <ul>
-                            <li>
-                                <a href="#">peterpan</a>
-                                <a class="text-danger" href="#">[unfriend]</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- ./friends -->
+            <div class="profile-description">
+                <h2>John Doe</h2>
+                <p>rất đẹp zai</p>
             </div>
         </div>
-    </main>
-    <!-- ./main -->
+
+        <div class="profile-edit">
+            <a href="">
+                <i class="fa-solid fa-pen"></i>
+                Edit profile
+            </a>
+        </div>
+    </div>
+</div>
+
+<hr style="width:auto;margin-left: 190px;margin-right: 190px;">
+
+<!-- main -->
+<main class="main container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="img_profile container">
+                <div class="img_profile_header">
+                    <span>Images</span>
+                    <a href="">View all images</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="friend_profile container">
+                <div class="friend_profile-header">
+                    <span>6969 Friends</span>
+                    <a href="">View all friends</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="friend_img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="friends_name">
+                                <span>
+                                    <a href="">Le Van A</a>
+                                </span>
+                        </div>
+
+
+                        <div class="friend_img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="friends_name">
+                                <span>
+                                    <a href="">Le Van A</a>
+                                </span>
+                        </div>
+
+                        <div class="friend_img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="friends_name">
+                                <span>
+                                    <a href="">Le Van A</a>
+                                </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="friend_img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="friends_name">
+                                <span>
+                                    <a href="">Le Van A</a>
+                                </span>
+                        </div>
+
+
+                        <div class="friend_img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="friends_name">
+                                <span>
+                                    <a href="">Le Van A</a>
+                                </span>
+                        </div>
+
+                        <div class="friend_img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="friends_name">
+                                <span>
+                                    <a href="">Le Van A</a>
+                                </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="friend_img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="friends_name">
+                                <span>
+                                    <a href="">Le Van A</a>
+                                </span>
+                        </div>
+
+
+                        <div class="friend_img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="friends_name">
+                                <span>
+                                    <a href="">Le Van A</a>
+                                </span>
+                        </div>
+
+                        <div class="friend_img">
+                                <span>
+                                    <a href="#">
+                                        <img
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-1"
+                                                alt="Boat on Calm Water"
+                                        />
+                                    </a>
+                                </span>
+                        </div>
+
+                        <div class="friends_name">
+                                <span>
+                                    <a href="">Le Van A</a>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center col-md-7">
+            <div class="my_post">
+
+                <div class="post_top">
+
+                    <img src="../static/image/profile.png">
+                    <input type="text" placeholder="What's on you mind, John?">
+
+                </div>
+
+                <hr>
+
+                <div class="post_bottom">
+
+                    <div class="post_icon">
+                        <i class="fa-solid fa-video red"></i>
+                        <span>Live video</span>
+                    </div>
+
+                    <div class="post_icon">
+                        <i class="fa-solid fa-images green"></i>
+                        <span>Photo/video</span>
+                    </div>
+
+                    <div class="post_icon">
+                        <i class="fa-regular fa-face-grin yellow"></i>
+                        <span>Feeling/activity</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="friends_post">
+
+                <div class="friend_post_top">
+
+                    <div class="img_and_name">
+
+                        <img src="../static/image/post_1.jpg">
+
+                        <div class="friends_name">
+                            <p class="friends_name">
+                                John Doe
+                            </p>
+                            <p class="time">16h.<i class="fa-solid fa-user-group"></i></p>
+                        </div>
+
+                    </div>
+
+                    <div class="menu">
+
+                        <i class="fa-solid fa-ellipsis"></i>
+
+                    </div>
+
+                </div>
+
+                <img src="../static/image/post_1.jpg">
+
+                <div class="info">
+
+                    <div class="emoji_img">
+                        <img src="../static/image/like.png">
+                        <img src="../static/image/haha.png">
+                        <img src="../static/image/heart.png">
+                        <p>You, Charith Disanayaka and 25K others</p>
+                    </div>
+
+                    <div class="comment">
+                        <p>421 Comments</p>
+                        <p>1.3K Shares</p>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="like">
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-thumbs-up activi"></i>
+                        <span>Like</span>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-message"></i>
+                        <span>Comments</span>
+                    </div>
+
+                    <div class="like_icon">
+                        <i class="fa-solid fa-share"></i>
+                        <span>Share</span>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="comment_warpper">
+
+                    <img src="../static/image/profile.png">
+                    <div class="circle"></div>
+
+                    <div class="comment_search">
+
+                        <input type="text" placeholder="Write a comment">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-regular fa-note-sticky"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+<!-- ./main -->
 </body>
 </html>
