@@ -24,13 +24,13 @@ USE `open_world` ;
 DROP TABLE IF EXISTS `open_world`.`notification` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`notification` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `account_id` INT NULL,
-  `content` VARCHAR(450) NULL,
-  `notification_date` DATETIME(6) NULL,
-  `is_read` INT NULL, -- 0: unread | 1:read
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+                                                           `id` INT NOT NULL AUTO_INCREMENT,
+                                                           `account_id` INT NULL,
+                                                           `content` VARCHAR(450) NULL,
+    `notification_date` DATETIME(6) NULL,
+    `is_read` INT NULL, -- 0: unread | 1:read
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `open_world`.`account`
@@ -38,16 +38,16 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `open_world`.`account` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`account` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `status` INT NULL DEFAULT NULL, --  0 in-active | 1: active
-  `role` INT NULL DEFAULT NULL, -- 1: user | 2: admin
-  `create_date` DATE NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+                                                      `id` INT NOT NULL AUTO_INCREMENT,
+                                                      `username` VARCHAR(45) NOT NULL,
+    `password` VARCHAR(45) NOT NULL,
+    `status` INT NULL DEFAULT NULL, --  0 in-active | 1: active
+    `role` INT NULL DEFAULT NULL, -- 1: user | 2: admin
+    `create_date` DATE NULL DEFAULT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -56,14 +56,14 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `open_world`.`comment` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`comment` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `post_id` INT NULL DEFAULT NULL,
-  `content` VARCHAR(45) NULL DEFAULT NULL,
-  `create_at` DATETIME(6) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+                                                      `id` INT NOT NULL AUTO_INCREMENT,
+                                                      `post_id` INT NULL DEFAULT NULL,
+                                                      `content` VARCHAR(45) NULL DEFAULT NULL,
+    `create_at` DATETIME(6) NULL DEFAULT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -72,16 +72,16 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `open_world`.`friendship` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`friendship` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `account_id1` INT NULL DEFAULT NULL,
-  `account_id2` INT NULL DEFAULT NULL,
-  `action_account_id` INT NULL DEFAULT NULL,
-  `friendship_date` DATE NULL DEFAULT NULL,
-  `status` INT NULL DEFAULT NULL, -- 1: friend | 2: block
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+                                                         `id` INT NOT NULL AUTO_INCREMENT,
+                                                         `account_id1` INT NULL DEFAULT NULL,
+                                                         `account_id2` INT NULL DEFAULT NULL,
+                                                         `action_account_id` INT NULL DEFAULT NULL,
+                                                         `friendship_date` DATE NULL DEFAULT NULL,
+                                                         `status` INT NULL DEFAULT NULL, -- 1: friend | 2: block
+                                                         PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -90,21 +90,21 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `open_world`.`profile` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`profile` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `account_id` INT DEFAULT NULL,
-  `full_name` VARCHAR(45) NULL DEFAULT NULL,
-  `dob` DATE NULL DEFAULT NULL,
-  `avatar_url` VARCHAR(500) NULL DEFAULT NULL,
-  `cover_url` VARCHAR(500) NULL DEFAULT NULL,
-  `about_me` VARCHAR(45) NULL DEFAULT NULL,
-  `email` VARCHAR(100) NULL DEFAULT NULL,
-  `phone` VARCHAR(100) NULL DEFAULT NULL,
-  `gender` INT NULL DEFAULT NULL, -- 1: male | 2: female
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 6
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+                                                      `id` INT NOT NULL AUTO_INCREMENT,
+                                                      `account_id` INT DEFAULT NULL,
+                                                      `full_name` VARCHAR(45) NULL DEFAULT NULL,
+    `dob` DATE NULL DEFAULT NULL,
+    `avatar_url` VARCHAR(500) NULL DEFAULT NULL,
+    `cover_url` VARCHAR(500) NULL DEFAULT NULL,
+    `about_me` VARCHAR(45) NULL DEFAULT NULL,
+    `email` VARCHAR(100) NULL DEFAULT NULL,
+    `phone` VARCHAR(100) NULL DEFAULT NULL,
+    `gender` INT NULL DEFAULT NULL, -- 1: male | 2: female
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    AUTO_INCREMENT = 6
+    DEFAULT CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -113,17 +113,17 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `open_world`.`react` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`react` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `type_id` INT NULL DEFAULT NULL,
-  `account_id` INT NULL DEFAULT NULL,
-  `post_id` INT NULL DEFAULT NULL,
-  `comment_id` INT NULL DEFAULT NULL,
-  `create_at` DATETIME(6) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 11
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+                                                    `id` INT NOT NULL AUTO_INCREMENT,
+                                                    `type_id` INT NULL DEFAULT NULL,
+                                                    `account_id` INT NULL DEFAULT NULL,
+                                                    `post_id` INT NULL DEFAULT NULL,
+                                                    `comment_id` INT NULL DEFAULT NULL,
+                                                    `create_at` DATETIME(6) NULL DEFAULT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    AUTO_INCREMENT = 11
+    DEFAULT CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -132,12 +132,12 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `open_world`.`type_react` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`type_react` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(100) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+                                                         `id` INT NOT NULL AUTO_INCREMENT,
+                                                         `name` VARCHAR(100) NULL DEFAULT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -146,16 +146,16 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `open_world`.`userpost` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`userpost` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `account_id` INT NOT NULL,
-  `create_at` DATETIME(6) NULL DEFAULT NULL,
-  `caption` VARCHAR(400) NULL DEFAULT NULL,
-  `photo_url` VARCHAR(450) NULL DEFAULT NULL,
-  `post_share_id` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+                                                       `id` INT NOT NULL AUTO_INCREMENT,
+                                                       `account_id` INT NOT NULL,
+                                                       `create_at` DATETIME(6) NULL DEFAULT NULL,
+    `caption` VARCHAR(400) NULL DEFAULT NULL,
+    `photo_url` VARCHAR(450) NULL DEFAULT NULL,
+    `post_share_id` VARCHAR(45) NULL DEFAULT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
@@ -245,6 +245,3 @@ INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_
 INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('2', 'ngoc mai like your post', '2023-09-20 21:35:00.000000', '1');
 INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('1', 'long comment your post', '2023-09-20 21:35:00.000000', '0');
 INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('3', 'fake notification', '2023-09-20 21:35:00.000000', '1');
-
-
-
