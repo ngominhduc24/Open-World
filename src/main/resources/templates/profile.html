@@ -28,18 +28,18 @@
         </a>
     </div>
     <div class="profile-header">
-        <div class="profile-account">
-            <div class="profile-avatar">
-                <a href="">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                         alt="avatar">
-                </a>
+            <div class="profile-account">
+                <div class="profile-avatar">
+                    <a href="">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                             alt="avatar">
+                    </a>
+                </div>
+                <div class="profile-description">
+                    <h2>John Doe</h2>
+                    <p>rất đẹp zai</p>
+                </div>
             </div>
-            <div class="profile-description">
-                <h2>John Doe</h2>
-                <p>rất đẹp zai</p>
-            </div>
-        </div>
 
         <div class="profile-edit">
             <a href="">
@@ -391,6 +391,10 @@
 
             </div>
 
+            <dialog class="post_modal">
+                <div th:replace="post"></div>
+            </dialog>
+
             <div class="friends_post">
 
                 <div class="friend_post_top">
@@ -478,5 +482,16 @@
     </div>
 </main>
 <!-- ./main -->
+
+<script>
+    const openPost = document.querySelector(".my_post");
+    const postModal = document.querySelector(".post_modal");
+
+    openPost.addEventListener("click", () => {
+        postModal.showModal()
+    })
+
+</script>
+
 </body>
 </html>

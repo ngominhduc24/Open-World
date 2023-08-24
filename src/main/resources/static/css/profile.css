@@ -1,3 +1,8 @@
+.post_modal {
+    width: 35%; /* Full width */
+    height: 50%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+}
 .wrapper {
     margin-top: 60px;
     margin-bottom: 10px;
