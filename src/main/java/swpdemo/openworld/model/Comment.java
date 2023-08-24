@@ -14,7 +14,7 @@ public class Comment {
     private Integer id;
 
     @Column(nullable = true)
-    private String postId;
+    private Integer postId;
 
     @Column(nullable = true, length = 45)
     private String content;

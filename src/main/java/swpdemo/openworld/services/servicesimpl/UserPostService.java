@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class UserPostService implements IUserPostService {
     @Override
-    public List<UserPostDTO> getPostById(Integer accountId, int limit) {
+    public List<UserPostDTO> getPostByAccountId(Integer accountId, int start, int end) {
         throw new UnsupportedOperationException();
     }
 }

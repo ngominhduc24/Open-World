@@ -21,7 +21,8 @@ public class UserPostAPIController {
     @GetMapping("/post/{accountId}")
     public List<UserPostDTO> getUserPost(
             @PathVariable(name = "accountId") Integer accountId,
-            @RequestParam(name = "limit", defaultValue = "20") Integer limit,
+            @RequestParam(name = "start", defaultValue = "1") Integer start,
+            @RequestParam(name = "end", defaultValue = "10") Integer end,
             HttpSession session
     ) throws IllegalAccessException {
         try {
@@ -33,7 +34,7 @@ public class UserPostAPIController {
             throw new IllegalAccessException();
         }
 
-        List<UserPostDTO> listUserPost = userPostService.getPostById(accountId, limit);
+        List<UserPostDTO> listUserPost = userPostService.getPostByAccountId(accountId, start, end);
         if (listUserPost != null) {
             return listUserPost;
         } else {
