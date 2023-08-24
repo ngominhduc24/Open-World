@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `open_world`.`react` (
   `type_id` INT NULL DEFAULT NULL,
   `account_id` INT NULL DEFAULT NULL,
   `post_id` INT NULL DEFAULT NULL,
-  `comment_id` VARCHAR(45) NULL DEFAULT NULL,
+  `comment_id` INT NULL DEFAULT NULL,
   `create_at` DATETIME(6) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB

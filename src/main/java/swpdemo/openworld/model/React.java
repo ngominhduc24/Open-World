@@ -21,7 +21,7 @@ public class React {
     private Integer postId;
 
     @Column(nullable = true, length = 45)
-    private String commentId;
+    private Integer commentId;
 
     @Column(nullable = true)
     private String createAt;
