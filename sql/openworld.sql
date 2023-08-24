@@ -117,8 +117,8 @@ CREATE TABLE IF NOT EXISTS `open_world`.`react` (
                                                     `type_id` INT NULL DEFAULT NULL,
                                                     `account_id` INT NULL DEFAULT NULL,
                                                     `post_id` INT NULL DEFAULT NULL,
-                                                    `comment_id` VARCHAR(45) NULL DEFAULT NULL,
-    `create_at` DATETIME(6) NULL DEFAULT NULL,
+                                                    `comment_id` INT NULL DEFAULT NULL,
+                                                    `create_at` DATETIME(6) NULL DEFAULT NULL,
     PRIMARY KEY (`id`))
     ENGINE = InnoDB
     AUTO_INCREMENT = 11
@@ -147,12 +147,11 @@ DROP TABLE IF EXISTS `open_world`.`userpost` ;
 
 CREATE TABLE IF NOT EXISTS `open_world`.`userpost` (
                                                        `id` INT NOT NULL AUTO_INCREMENT,
-                                                       `account_id` INT DEFAULT NULL,
+                                                       `account_id` INT NOT NULL,
                                                        `create_at` DATETIME(6) NULL DEFAULT NULL,
     `caption` VARCHAR(400) NULL DEFAULT NULL,
     `photo_url` VARCHAR(450) NULL DEFAULT NULL,
     `post_share_id` VARCHAR(45) NULL DEFAULT NULL,
-    `access` INT NULL DEFAULT NULL, -- 1: public | 2: friend | 3: private
     PRIMARY KEY (`id`))
     ENGINE = InnoDB
     DEFAULT CHARACTER SET = utf8mb4
@@ -246,6 +245,3 @@ INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_
 INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('2', 'ngoc mai like your post', '2023-09-20 21:35:00.000000', '1');
 INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('1', 'long comment your post', '2023-09-20 21:35:00.000000', '0');
 INSERT INTO `open_world`.`notification` (`account_id`, `content`, `notification_date`, `is_read`) VALUES ('3', 'fake notification', '2023-09-20 21:35:00.000000', '1');
-
-
-

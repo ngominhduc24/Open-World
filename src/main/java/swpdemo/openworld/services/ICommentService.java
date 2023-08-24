@@ -7,5 +7,5 @@ import swpdemo.openworld.dto.UserPostDTO;
 import java.util.List;
 
 public interface ICommentService {
-    List<CommentDTO> getCommentByPostId(Integer postId, int start, int end);
+    List<CommentDTO> getCommentByPostId(Integer postId, int pageNo, int pageSize);
 }
