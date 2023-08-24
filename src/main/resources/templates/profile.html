@@ -23,7 +23,7 @@
 <div class="wrapper">
     <div class="profile-background">
         <a href="">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+            <img th:src="${profile.getCoverUrl()}"
                  alt="background">
         </a>
     </div>
@@ -31,13 +31,13 @@
         <div class="profile-account">
             <div class="profile-avatar">
                 <a href="">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                    <img th:src="${profile.getAvatarUrl()}"
                          alt="avatar">
                 </a>
             </div>
             <div class="profile-description">
-                <h2>John Doe</h2>
-                <p>rất đẹp zai</p>
+                <h2 th:text="${profile.getFullName()}"></h2>
+                <p th:text="${profile.getAboutMe()}"></p>
             </div>
         </div>
 
