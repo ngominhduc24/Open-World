@@ -179,183 +179,76 @@
                 </div>
             </div>
 
-            <div class="friend_profile container">
-                <div class="friend_profile-header">
-                    <span>6969 Friends</span>
-                    <a href="">View all friends</a>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="friend_img">
-                                <span>
-                                    <a href="#">
-                                        <img
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-1"
-                                                alt="Boat on Calm Water"
-                                        />
-                                    </a>
-                                </span>
+        <div class="friend_profile container">
+            <div class="friend_profile-header">
+                <span>6969 Friends</span>
+                <a href="">View all friends</a>
+            </div>
+            <div class="row">
+                <th:block th:each="friend, state : ${listFriend}">
+                    <th:block th:if="${state.index < 3}" >
+                        <div class="col-md-4">
+                            <div class="friend_img">
+                                    <span>
+                                        <a href="#">
+                                            <img
+                                                    th:src="${friend.getAvatarUrl()}"
+                                                    class="w-100 shadow-1-strong rounded mb-1"
+                                                    alt="Boat on Calm Water"
+                                            />
+                                        </a>
+                                    </span>
+                            </div>
+                            <div class="friends_name">
+                            <span>
+                                <a href="" th:text="${friend.getFullName()}"></a>
+                            </span>
                         </div>
-
-                        <div class="friends_name">
-                                <span>
-                                    <a href="">Le Van A</a>
-                                </span>
                         </div>
+                    </th:block>
 
-
-                        <div class="friend_img">
-                                <span>
-                                    <a href="#">
-                                        <img
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-1"
-                                                alt="Boat on Calm Water"
-                                        />
-                                    </a>
-                                </span>
+                    <th:block th:if="${state.index >= 3 and state.index < 6}" >
+                        <div class="col-md-4">
+                            <div class="friend_img">
+                                    <span>
+                                        <a href="#">
+                                            <img
+                                                    th:src="${friend.getAvatarUrl()}"
+                                                    class="w-100 shadow-1-strong rounded mb-1"
+                                                    alt="Boat on Calm Water"
+                                            />
+                                        </a>
+                                    </span>
+                            </div>
+                            <div class="friends_name">
+                            <span>
+                                <a href="" th:text="${friend.getFullName()}"></a>
+                            </span>
+                            </div>
                         </div>
+                    </th:block>
 
-                        <div class="friends_name">
-                                <span>
-                                    <a href="">Le Van A</a>
-                                </span>
+                    <th:block th:if="${state.index >= 6 and state.index < 9}" >
+                        <div class="col-md-4">
+                            <div class="friend_img">
+                                    <span>
+                                        <a href="#">
+                                            <img
+                                                    th:src="${friend.getAvatarUrl()}"
+                                                    class="w-100 shadow-1-strong rounded mb-1"
+                                                    alt="Boat on Calm Water"
+                                            />
+                                        </a>
+                                    </span>
+                            </div>
+                            <div class="friends_name">
+                            <span>
+                                <a href="" th:text="${friend.getFullName()}"></a>
+                            </span>
+                            </div>
                         </div>
-
-                        <div class="friend_img">
-                                <span>
-                                    <a href="#">
-                                        <img
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-1"
-                                                alt="Boat on Calm Water"
-                                        />
-                                    </a>
-                                </span>
-                        </div>
-
-                        <div class="friends_name">
-                                <span>
-                                    <a href="">Le Van A</a>
-                                </span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="friend_img">
-                                <span>
-                                    <a href="#">
-                                        <img
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-1"
-                                                alt="Boat on Calm Water"
-                                        />
-                                    </a>
-                                </span>
-                        </div>
-
-                        <div class="friends_name">
-                                <span>
-                                    <a href="">Le Van A</a>
-                                </span>
-                        </div>
-
-
-                        <div class="friend_img">
-                                <span>
-                                    <a href="#">
-                                        <img
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-1"
-                                                alt="Boat on Calm Water"
-                                        />
-                                    </a>
-                                </span>
-                        </div>
-
-                        <div class="friends_name">
-                                <span>
-                                    <a href="">Le Van A</a>
-                                </span>
-                        </div>
-
-                        <div class="friend_img">
-                                <span>
-                                    <a href="#">
-                                        <img
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-1"
-                                                alt="Boat on Calm Water"
-                                        />
-                                    </a>
-                                </span>
-                        </div>
-
-                        <div class="friends_name">
-                                <span>
-                                    <a href="">Le Van A</a>
-                                </span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="friend_img">
-                                <span>
-                                    <a href="#">
-                                        <img
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-1"
-                                                alt="Boat on Calm Water"
-                                        />
-                                    </a>
-                                </span>
-                        </div>
-
-                        <div class="friends_name">
-                                <span>
-                                    <a href="">Le Van A</a>
-                                </span>
-                        </div>
-
-
-                        <div class="friend_img">
-                                <span>
-                                    <a href="#">
-                                        <img
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-1"
-                                                alt="Boat on Calm Water"
-                                        />
-                                    </a>
-                                </span>
-                        </div>
-
-                        <div class="friends_name">
-                                <span>
-                                    <a href="">Le Van A</a>
-                                </span>
-                        </div>
-
-                        <div class="friend_img">
-                                <span>
-                                    <a href="#">
-                                        <img
-                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                class="w-100 shadow-1-strong rounded mb-1"
-                                                alt="Boat on Calm Water"
-                                        />
-                                    </a>
-                                </span>
-                        </div>
-
-                        <div class="friends_name">
-                                <span>
-                                    <a href="">Le Van A</a>
-                                </span>
-                        </div>
-                    </div>
-                </div>
+                    </th:block>
+                </th:block>
             </div>
         </div>
         <div class="center col-md-7">
