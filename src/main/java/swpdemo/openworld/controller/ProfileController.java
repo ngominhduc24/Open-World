@@ -21,13 +21,18 @@ public class ProfileController {
     FriendshipService friendshipService;
     @GetMapping
     public String profilePage(Model model, HttpSession session){
-        Account account = (Account)session.getAttribute("account");
-        Profile profile = profileService.GetProfileByAccountId(account.getId());
-        model.addAttribute("profile", profile);
 
-        // get List friend
-        final int numberOfFriend = 9;
-        model.addAttribute("listFriend", friendshipService.ListProfileNameAndAvtFriend(account.getId(), numberOfFriend));
+        if(session.getAttribute("account") == null) {
+            return "login";
+        } else {
+            Account account = (Account)session.getAttribute("account");
+            Profile profile = profileService.GetProfileByAccountId(account.getId());
+            model.addAttribute("profile", profile);
+
+            // get List friend
+            final int numberOfFriend = 9;
+            model.addAttribute("listFriend", friendshipService.ListProfileNameAndAvtFriend(account.getId(), numberOfFriend));
+        }
         return("profile");
     }
 
