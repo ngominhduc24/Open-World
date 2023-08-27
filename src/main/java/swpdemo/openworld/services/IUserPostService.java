@@ -6,5 +6,5 @@ import swpdemo.openworld.dto.UserPostDTO;
 import java.util.List;
 
 public interface IUserPostService {
-    List<UserPostDTO> getPostByAccountId(Integer accountId, int start, int end);
+    List<UserPostDTO> getPostByAccountId(Integer accountId, int pageNo, int pageSize);
 }

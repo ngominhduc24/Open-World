@@ -21,8 +21,8 @@ public class UserPostAPIController {
     @GetMapping("/post/{accountId}")
     public List<UserPostDTO> getUserPost(
             @PathVariable(name = "accountId") Integer accountId,
-            @RequestParam(name = "start", defaultValue = "1") Integer start,
-            @RequestParam(name = "end", defaultValue = "10") Integer end,
+            @RequestParam(name = "pageNo", defaultValue = "1") Integer start,
+            @RequestParam(name = "pageSize", defaultValue = "10") Integer end,
             HttpSession session
     ) throws IllegalAccessException {
         try {
