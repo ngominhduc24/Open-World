@@ -14,4 +14,17 @@ public class ProfileService implements IProfileService {
     public Profile GetProfileByAccountId(Integer accountId) {
         return profileRepository.findProfileByAccountId(accountId);
     }
+
+    public Profile updateProfile(Integer id, Profile profileRequest){
+        Profile existingProfile = profileRepository.findProfileByAccountId(id);
+        existingProfile.setEmail(profileRequest.getEmail());
+        existingProfile.setPhone(profileRequest.getPhone());
+        existingProfile.setDob(profileRequest.getDob());
+        existingProfile.setAboutMe(profileRequest.getAboutMe());
+        existingProfile.setGender(profileRequest.getGender());
+        existingProfile.setAvatarUrl(profileRequest.getAvatarUrl());
+        existingProfile.setCoverUrl(profileRequest.getCoverUrl());
+        existingProfile.setFullName(profileRequest.getFullName());
+        return profileRepository.save(existingProfile);
+    }
 }

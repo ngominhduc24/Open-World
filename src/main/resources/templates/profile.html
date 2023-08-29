@@ -31,9 +31,23 @@
         <div class="profile-account">
             <div class="profile-avatar">
                 <a href="">
+<!--                    <img th:src="@{'profile/getImg/' + ${profile.getAvatarUrl()}}"-->
                     <img th:src="${profile.getAvatarUrl()}"
+                         id="avatar"
                          alt="avatar">
+
+
                 </a>
+                <form id="avatar-form" action="/profile/update" method="post" enctype="multipart/form-data">
+                    <input id="avatar-setting" type="file"
+                           name="photo"
+                           placeholder="test"
+                           value="test"
+                           style="display: none">
+                    <img src="" alt="" id="img-preview" style="width: 100px; height: 100px;display: none">
+                    <input type="submit" id="img-submit" value="choose this img" style="display: none">
+                </form>
+
             </div>
             <div class="profile-description">
                 <h2 th:text="${profile.getFullName()}"></h2>
@@ -100,6 +114,7 @@
                         </div>
 
                     </div>
+
                     <div class="col-md-4">
                         <div class="img">
                                 <span>
@@ -137,6 +152,7 @@
                                 </span>
                         </div>
                     </div>
+
                     <div class="col-md-4">
                         <div class="img">
                                 <span>
@@ -184,7 +200,7 @@
                 </div>
                 <div class="row">
                     <th:block th:each="friend, state : ${listFriend}">
-                        <th:block th:if="${state.index < 3}" >
+                        <th:block th:if="${state.index < 3}">
                             <div class="col-md-4">
                                 <div class="friend_img">
                                     <span>
@@ -205,7 +221,7 @@
                             </div>
                         </th:block>
 
-                        <th:block th:if="${state.index >= 3 and state.index < 6}" >
+                        <th:block th:if="${state.index >= 3 and state.index < 6}">
                             <div class="col-md-4">
                                 <div class="friend_img">
                                     <span>
@@ -226,7 +242,7 @@
                             </div>
                         </th:block>
 
-                        <th:block th:if="${state.index >= 6 and state.index < 9}" >
+                        <th:block th:if="${state.index >= 6 and state.index < 9}">
                             <div class="col-md-4">
                                 <div class="friend_img">
                                     <span>
@@ -371,5 +387,30 @@
     </div>
 </main>
 <!-- ./main -->
+<script>
+    const img_setting = document.getElementById("avatar-setting");
+    const preview = document.getElementById("img-preview");
+    const img_summit = document.getElementById("img-submit");
+
+    document.getElementById("avatar").addEventListener("click", (e) => {
+        e.preventDefault();
+        if (img_setting.style.display === "none") {
+            preview.style.display = "block";
+            img_setting.style.display = "block";
+            img_summit.style.display = "block";
+        } else {
+            preview.style.display = "none";
+            img_setting.style.display = "none";
+            img_summit.style.display = "none";
+        }
+    })
+
+
+    img_setting.onchange = function () {
+        preview.src = URL.createObjectURL(img_setting.files[0])
+    }
+
+</script>
+
 </body>
 </html>
