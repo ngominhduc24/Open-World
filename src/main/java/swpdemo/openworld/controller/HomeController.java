@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 @Controller
 public class HomeController {
-    @GetMapping("/home")
+    @GetMapping({"/", "/home"})
     public String loginPage(WebRequest request, Model model, HttpSession session) {
-        if(session.getAttribute("account") == null) {
+        if (session.getAttribute("account") == null) {
             return "login";
         }
         return "home";
