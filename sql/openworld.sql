@@ -213,6 +213,12 @@ INSERT INTO `open_world`.`friendship` (`account_id1`, `account_id2`, `action_acc
 INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('1', '2023-08-20 20:35:00.000000', 'may anh moi mua', 'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg');
 INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('2', '2023-08-20 20:35:00.000000', 'no cap', 'https://learnopencv.com/wp-content/uploads/2021/04/image-15.png');
 INSERT INTO `open_world`.`userpost` (`account_id`, `post_share_id`) VALUES ('1', '2');
+INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('1', '2023-08-20 20:35:00.000000', 'dep the', 'https://www.randomhousebooks.com/wp-content/uploads/2022/02/RHBC_logo_square-300x300.png');
+INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('1', '2023-08-20 20:35:00.000000', 'khong co gi', 'https://media.istockphoto.com/id/173682323/photo/says.jpg?s=612x612&w=0&k=20&c=7jnXQrYzUWNTnLhjPgimxHIbjsaHvZmAMALGVzYNARQ=');
+INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('1', '2023-08-20 20:35:00.000000', 'facebook', 'https://awik.io/wp-content/uploads/2018/06/unsplash.jpg');
+INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('1', '2023-08-20 20:35:00.000000', 'test ne', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN3jCYIYSNi8AkhPubpb-NTy02PT29XjX4lqB-TRA2T9NmCUEJX8oFDwNIaJFi14j-rlA&usqp=CAU');
+INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('1', '2023-08-20 20:35:00.000000', '1 2 3 ...', 'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg');
+INSERT INTO `open_world`.`userpost` (`account_id`, `create_at`, `caption`, `photo_url`) VALUES ('1', '2023-08-20 20:35:00.000000', '1928.', 'https://learnopencv.com/wp-content/uploads/2021/04/image-15.png');
 
 -- Insert statements for the comment table
 INSERT INTO `open_world`.`comment` (`post_id`, `content`, `create_at`) VALUES ('1', 'may anh dep the', '2023-09-20 20:35:00.000000');
