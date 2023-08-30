@@ -27,7 +27,6 @@ public class RegisterController {
     @GetMapping("/register")
     public String registerPage(Model model) {
         AccountDTO accountDTO = (AccountDTO) model.getAttribute("AccountDTO");
-        System.out.println(accountDTO);
         if (accountDTO == null) {
             model.addAttribute("AccountDTO", new AccountDTO());
         } else {

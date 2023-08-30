@@ -52,7 +52,7 @@ public class ProfileController {
             InputStream inputStream = photo.getInputStream();
             Files.copy(inputStream, path.resolve(photo.getOriginalFilename()),
                     StandardCopyOption.REPLACE_EXISTING);
-            if(photo.getOriginalFilename() != null){
+            if (photo.getOriginalFilename() != null) {
                 Account account = (Account) session.getAttribute("account");
                 Profile profile = profileService.GetProfileByAccountId(account.getId());
                 profile.setAvatarUrl("profile/getImg/" + photo.getOriginalFilename());
@@ -64,7 +64,7 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-    @RequestMapping(value = "getImg/{photo}", method = RequestMethod.GET)
+    @GetMapping(value = "getImg/{photo}")
     @ResponseBody
     public ResponseEntity<ByteArrayResource> getImg(@PathVariable("photo") String photo) {
         if (!photo.equals("") || photo != null) {
@@ -72,15 +72,11 @@ public class ProfileController {
                 Path filename = Paths.get("upload", photo);
                 byte[] buffer = Files.readAllBytes(filename);
                 ByteArrayResource byteArrayResource = new ByteArrayResource(buffer);
-                System.out.println(ResponseEntity.ok()
-                        .contentLength(buffer.length)
-                        .contentType(MediaType.parseMediaType("image/jpg"))
-                        .body(byteArrayResource));
-                return  ResponseEntity.ok()
+                return ResponseEntity.ok()
                         .contentLength(buffer.length)
                         .contentType(MediaType.parseMediaType("image/jpg"))
                         .body(byteArrayResource);
-            } catch (Exception e){
+            } catch (Exception e) {
 
             }
         }
