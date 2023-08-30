@@ -6,18 +6,19 @@
 </head>
 <body>
 <form th:action="@{/register}" th:object="${AccountDTO}" method="post">
-    fullname: <input type="text" th:field="*{fullName}"><br>
-    username: <input type="text" th:field="*{username}"> <br>
-    password: <input type="password" th:field="*{password}"><br>
-    re-password: <input type="password" name="re-password"> <br>
-    date of birth: <input type="date" th:field="*{dob}"><br>
+    fullname: <input class="info-field" type="text" th:field="*{fullName}" required><br>
+    username: <input class="info-field" type="text" th:field="*{username}" required> <br>
+    password: <input class="info-field" type="password" th:field="*{password}" required><br>
+    re-password: <input class="info-field" type="password" name="re-password" required> <br>
+    date of birth: <input class="info-field" type="date" th:field="*{dob}" required><br>
+
     Gender:
-    <input type="radio" id="male" th:field="*{gender}" value="1">
+    <input type="radio" name="gender" id="male" th:field="*{gender}" value="1">
     <label for="male">Male</label>
-    <input type="radio" id="female" th:field="*{gender}" value="2">
+    <input type="radio" name="gender" id="female" th:field="*{gender}" value="2" checked>
     <label for="female">Female</label><br>
 
-    <input type="submit" value="Register">
+    <input id="submit-form" type="submit" value="Register">
     <p th:text="${errmsg}" style="color: red"></p>
 </form>
 </body>
