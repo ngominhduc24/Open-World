@@ -43,7 +43,7 @@ public class ProfileController {
 
         // Get list Image
         final int numberOfImg = 9;
-        model.addAttribute("listUrlImg", userPostService.getListUrlImg(account.getId(), numberOfImg));
+        model.addAttribute("listUrlImg", userPostService.getPostByAccountId(account.getId(), numberOfImg));
 
         // Get list friend
         final int numberOfFriend = 9;

@@ -43,8 +43,9 @@ public class UserPostService implements IUserPostService {
     }
 
     @Override
-    public List<String> getListUrlImg(Integer accountId, Integer limit) {
-        List<String> listImg = UserPostRepository.findListImgByAccountId(accountId, limit);
-        return listImg.stream().filter(imgUrl -> imgUrl != null).toList();
+    public List<UserPost> getPostByAccountId(Integer accountId, Integer limit) {
+        final int pageNo = 0, pageSize = limit;
+        List<UserPost> ListUserPost = UserPostRepository.findAllPostsByAccountIdAndPhotoUrlIsNotNull(accountId, PageRequest.of(pageNo, pageSize, Sort.by("createAt").descending()));
+        return ListUserPost;
     }
 }

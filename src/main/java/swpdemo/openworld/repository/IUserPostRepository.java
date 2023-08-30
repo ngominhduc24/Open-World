@@ -11,8 +11,7 @@ import java.util.List;
 public interface IUserPostRepository extends JpaRepository<UserPost, Integer> {
     public List<UserPost> findAllPostsByAccountId(Integer accountId, Pageable pageable);
 
-    @Query(value = "select photo_url from userpost where account_id = ?1 LIMIT ?2", nativeQuery = true)
-    List<String> findListImgByAccountId(Integer accountId, Integer limit);
+    public List<UserPost> findAllPostsByAccountIdAndPhotoUrlIsNotNull(Integer accountId, Pageable pageable);
 
     @Query(value = "select count(*)\n" +
             "from userpost where post_share_id = ?1", nativeQuery = true)
