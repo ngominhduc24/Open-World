@@ -23,7 +23,7 @@ public class FriendshipService implements IFriendshipService {
     IProfileRepository profileRepository;
 
     @Override
-    public List<Profile> ListProfileNameAndAvtFriend(Integer accountId, Integer limit) {
+    public List<Profile> getListProfileNameAndAvtFriend(Integer accountId, Integer limit) {
         List<Profile> listProfiles = new ArrayList<>();
         Pageable page = PageRequest.of(0, limit);
         Slice<Friendship> listFriendship = friendshipRepository.getFriendshipByAccountId1OrAccountId2(accountId, accountId, page);

@@ -36,9 +36,13 @@ public class ProfileController {
         Profile profile = profileService.GetProfileByAccountId(account.getId());
         model.addAttribute("profile", profile);
 
-        // get List friend
+        // Get list Image
+//        final int numberOfImg = 9;
+//        List<Profile> listImg = friendshipService.
+
+        // Get list friend
         final int numberOfFriend = 9;
-        model.addAttribute("listFriend", friendshipService.ListProfileNameAndAvtFriend(account.getId(), numberOfFriend));
+        model.addAttribute("listFriend", friendshipService.getListProfileNameAndAvtFriend(account.getId(), numberOfFriend));
         return ("profile");
     }
 
