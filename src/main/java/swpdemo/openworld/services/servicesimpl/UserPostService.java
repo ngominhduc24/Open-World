@@ -41,4 +41,10 @@ public class UserPostService implements IUserPostService {
         });
         return ListUserPostDTO;
     }
+
+    @Override
+    public List<String> getListUrlImg(Integer accountId, Integer limit) {
+        List<String> listImg = UserPostRepository.findListImgByAccountId(accountId, limit);
+        return listImg.stream().filter(imgUrl -> imgUrl != null).toList();
+    }
 }
