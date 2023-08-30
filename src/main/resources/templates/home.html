@@ -94,6 +94,10 @@
 
         </div>
 
+        <dialog class="post_modal">
+            <div th:replace="post"></div>
+        </dialog>
+
         <div class="friends_post">
 
             <div class="friend_post_top">
@@ -685,6 +689,15 @@
 
 </div>
 
+<script>
+    const openPost = document.querySelector(".my_post");
+    const postModal = document.querySelector(".post_modal");
+
+    openPost.addEventListener("click", () => {
+        postModal.showModal()
+    })
+
+</script>
 
 </body>
 </html>

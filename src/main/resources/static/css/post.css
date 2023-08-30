@@ -1,0 +1,37 @@
+.post_header {
+    align-items: center;
+}
+
+.post-account {
+    display: flex;
+    align-items: center;
+}
+
+.post_account {
+    display: flex;
+    margin-bottom: 20px;
+}
+.post_avatar {
+    margin-right: 20px;
+}
+
+.post_avatar img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.post_publication {
+    border:none;
+    border-radius:5px;
+}
+
+.post_input input{
+    width: 535px;
+    height: 50%;
+    border: none;
+}
+
+.post_input input::placeholder {
+    font-size: 18px;
+}
