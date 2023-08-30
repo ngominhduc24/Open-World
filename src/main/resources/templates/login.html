@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <title>Login page</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://unpkg.com/htmx.org@1.9.4"
-            integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV"
-            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container">
-    <div class="title">
-        <h1>OpenWorld</h1>
-        <p>OpenWorld help you connect and share to other people in your life</p>
-    </div>
-    <div class="signup-form">
-        <form action="login" method="post">
-            username: <input type="text" name="username"> <br>
-            password: <input type="password" name="password"><br>
+    <div class="container">
+        <div class="title">
+            <h1>OpenWorld</h1>
+            <p>OpenWorld help you connect and share to other people in your life</p>
+        </div>
+        <div class="signup-form">
+            <form action="login" method="post">
+                username: <input type="text" name="username"> <br>
+                password: <input type="password" name="password"><br>
 
-            <input type="submit" value="Login">
-        </form>
-        <a href="">Forgot your password?</a>
-        <a href="/register">Create an account</a>
+                <input type="submit" value="Login">
+            </form>
+            <a href="">Forgot your password?</a>
+            <a href="/register">Create an account</a>
+            <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
+    &client_id=570524258444-ridflrjec1qvuq3oidpn67cc1gm3t8i6.apps.googleusercontent.com&approval_prompt=force" style="margin:0; background-color: #f1f1f1; border-radius: 50%; padding: 8px 6px 14px;">
+                <img src="https://colorlib.com/etc/lf/Login_v9/images/icons/icon-google.png" alt="alt" /></a>
+        </div>
     </div>
-</div>
 </body>
 </html>
