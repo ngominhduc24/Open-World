@@ -9,6 +9,7 @@ import swpdemo.openworld.model.Profile;
 import swpdemo.openworld.repository.IAccountRepository;
 import swpdemo.openworld.repository.IProfileRepository;
 import swpdemo.openworld.services.IAccountService;
+import swpdemo.openworld.util.GooglePojo;
 
 @Service
 public class AccountService implements IAccountService {
@@ -49,5 +50,28 @@ public class AccountService implements IAccountService {
         profileRepository.save(profile);
 
         return account;
+    }
+
+    public Account registerAccount(GooglePojo googlePojo) {
+        String username = googlePojo.getEmail();
+        String name = username.replace("@gmail.com", "");
+        name = name.replace("@fpt.edu.vn", "");
+        String password = googlePojo.getId();
+
+        //save to account
+        Account newAccount = new Account();
+        newAccount.setUsername(username);
+        newAccount.setPassword(password);
+        newAccount.setStatus(1);
+        newAccount.setRole(1);
+        newAccount.setCreateDate(new java.sql.Date(System.currentTimeMillis()));
+        Account newAcc = accountRepository.save(newAccount);;
+        //save to profile
+        Profile newProfile = new Profile();
+        newProfile.setAccountId(newAcc.getId());
+        newProfile.setFullName(name);
+        newProfile.setAvatarUrl(googlePojo.getPicture());
+        profileRepository.save(newProfile);
+        return newAcc;
     }
 }
