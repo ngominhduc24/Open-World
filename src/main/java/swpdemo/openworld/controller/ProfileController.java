@@ -14,18 +14,23 @@ import swpdemo.openworld.model.Account;
 import swpdemo.openworld.model.Profile;
 import swpdemo.openworld.services.servicesimpl.FriendshipService;
 import swpdemo.openworld.services.servicesimpl.ProfileService;
+import swpdemo.openworld.services.servicesimpl.UserPostService;
 
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 @Controller
 @RequestMapping("/profile")
 public class ProfileController {
     @Autowired
     ProfileService profileService;
+
+    @Autowired
+    UserPostService userPostService;
 
     @Autowired
     FriendshipService friendshipService;
@@ -36,9 +41,13 @@ public class ProfileController {
         Profile profile = profileService.GetProfileByAccountId(account.getId());
         model.addAttribute("profile", profile);
 
-        // get List friend
+        // Get list Image
+        final int numberOfImg = 9;
+        model.addAttribute("listUrlImg", userPostService.getPostByAccountId(account.getId(), numberOfImg));
+
+        // Get list friend
         final int numberOfFriend = 9;
-        model.addAttribute("listFriend", friendshipService.ListProfileNameAndAvtFriend(account.getId(), numberOfFriend));
+        model.addAttribute("listFriend", friendshipService.getListProfileNameAndAvtFriend(account.getId(), numberOfFriend));
         return ("profile");
     }
 

@@ -41,4 +41,11 @@ public class UserPostService implements IUserPostService {
         });
         return ListUserPostDTO;
     }
+
+    @Override
+    public List<UserPost> getPostByAccountId(Integer accountId, Integer limit) {
+        final int pageNo = 0, pageSize = limit;
+        List<UserPost> ListUserPost = UserPostRepository.findAllPostsByAccountIdAndPhotoUrlIsNotNull(accountId, PageRequest.of(pageNo, pageSize, Sort.by("createAt").descending()));
+        return ListUserPost;
+    }
 }

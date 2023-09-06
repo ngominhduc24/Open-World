@@ -9,7 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 import swpdemo.openworld.model.Account;
+import swpdemo.openworld.model.Profile;
 import swpdemo.openworld.services.servicesimpl.AccountService;
+import swpdemo.openworld.util.GooglePojo;
+import swpdemo.openworld.util.GoogleUtils;
+
+import java.io.IOException;
+import java.util.Date;
 
 @Controller
 public class LoginController {
@@ -36,4 +42,27 @@ public class LoginController {
             return "login";
         }
     }
+
+    @GetMapping ("/login-google")
+    public String userLoginGoogle(WebRequest request, Model model, HttpSession session) throws IOException {
+        String code = request.getParameter("code");
+        if (code == null || code.isEmpty()) {
+            return "redirect:/login";
+        } else {
+            String accessToken = GoogleUtils.getToken(code);
+            GooglePojo googlePojo = GoogleUtils.getUserInfo(accessToken);
+            Account account = accountService.getAccountByUsernameAndPassword(googlePojo.getEmail(), googlePojo.getId());
+            if(account==null) {
+                Account newAcc = accountService.registerAccount(googlePojo);
+                session.setAttribute("account", newAcc);
+                return "redirect:/home";
+            } else{
+                session.setAttribute("account", account);
+                return "redirect:/home";
+            }
+
+        }
+    }
+
+
 }

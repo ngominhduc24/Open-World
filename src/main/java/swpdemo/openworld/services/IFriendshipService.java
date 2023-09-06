@@ -5,5 +5,5 @@ import swpdemo.openworld.model.Profile;
 import java.util.List;
 
 public interface IFriendshipService {
-    List<Profile> ListProfileNameAndAvtFriend(Integer accountId, Integer limit);
+    List<Profile> getListProfileNameAndAvtFriend(Integer accountId, Integer limit);
 }
